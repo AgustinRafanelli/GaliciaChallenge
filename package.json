@@ -1,0 +1,39 @@
+{
+  "name": "galiciachallenge",
+  "version": "0.0.1",
+  "description": "Programa de prueba que muestra cuentas bancarias y detalles de las mimas",
+  "main": "index.tsx",
+  "repository": "https://github.com/AgustinRafanelli/GaliciaChallenge.git",
+  "author": "Agustin Rafanelli",
+  "license": "MIT",
+  "proxy": "http://localhost:3000",
+  "private": false,
+  "scripts": {
+    "start": "react-scripts start"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "fetch": "^1.1.0",
+    "jest": "^29.6.2",
+    "prettier": "^3.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0",
+    "react-scripts": "^5.0.1",
+    "redux": "^4.2.1",
+    "tipescrypt": "^1.0.0",
+    "yarn": "^1.22.19"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

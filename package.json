@@ -9,7 +9,7 @@
   "proxy": "http://localhost:3000",
   "private": false,
   "scripts": {
-    "start": "react-scripts start"
+    "start": "react-scripts start --jsx"
   },
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
@@ -21,7 +21,8 @@
     "react-router-dom": "^6.15.0",
     "react-scripts": "^5.0.1",
     "redux": "^4.2.1",
-    "tipescrypt": "^1.0.0",
+    "styled-components": "^6.0.7",
+    "typescript": "^5.1.6",
     "yarn": "^1.22.19"
   },
   "browserslist": {
@@ -35,5 +36,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "ts-loader": "^9.4.4",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }

@@ -8,9 +8,8 @@ interface HeaderType {
 
 const Header = ({children} : HeaderType) => {
   return (
-    <HeaderWrapper>
+    <HeaderWrapper id="header">
       <Logo src={NCRLogo} />
-      {process.env.REACT_APP_API_ROUTE}
     </HeaderWrapper>
   );
 };

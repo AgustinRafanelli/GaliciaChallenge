@@ -1,18 +1,21 @@
 import React from "react";
 import Header from "./components/header/index";
 import { Navigate, Route, Routes } from "react-router";
+import AccountsList from "./pages/AccountList";
+import NotFound from "./pages/NotFound";
+
 import Footer from "./components/footer";
 
 const App = () => {
   return (
     <>
       <Header />
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<AccountsList />} />
         <Route path="404" element={<NotFound />} />
         <Route path="*" element={<Navigate to="404" />} />
-      </Routes> */}
-      <Footer />
+      </Routes>
+      <Footer/>
     </>
   );
 };

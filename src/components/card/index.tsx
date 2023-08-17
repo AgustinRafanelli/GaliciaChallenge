@@ -12,8 +12,8 @@ const Card = ({ type, accountType, accountNumber }: Card) => {
     <CardWrapper>
       {type == "account" && (
         <>
-          <span>{accountType}</span>
-          <span>{accountNumber}</span>
+          <Lable>{accountType}</Lable>
+          <Lable>{accountNumber}</Lable>
         </>
       )}
     </CardWrapper>

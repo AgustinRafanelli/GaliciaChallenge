@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const ExitButton = () => {
   const navigate = useNavigate();
+
   return (
     <ButtonWrapper onClick={() => navigate("/")}>
       <Lable>Salir</Lable>

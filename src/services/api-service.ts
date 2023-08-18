@@ -5,21 +5,26 @@ interface AccountType {
   moneda: string;
 }
 
-export function getAccounts(): Promise<[]> {
+
+function fetchAccountsScript(cuentas: any) {
+  return cuentas.filter((account: AccountType) => {
+    const validCurrency: Set<string> = new Set(["$", "u$s"]);
+    const validAccountType: Set<string> = new Set(["CC", "CA"]);
+    return (
+      validCurrency.has(account.moneda) &&
+      validAccountType.has(account.tipo_letras)
+    );
+  });
+}
+
+export function fetchAccounts() {
   const url: string = process.env.REACT_APP_API_ROUTE || "";
   return axios({
     method: "get",
     url: url,
   })
     .then(({ data }) => {
-      return data.cuentas.filter((account: AccountType) => {
-        const validCurrency: Set<string> = new Set(["$", "u$s"]);
-        const validAccountType: Set<string> = new Set(["CC", "CA"]);
-        return (
-          validCurrency.has(account.moneda) &&
-          validAccountType.has(account.tipo_letras)
-        );
-      });
+      return fetchAccountsScript(data.cuentas);
     })
     .catch((err) => console.error(err));
 }

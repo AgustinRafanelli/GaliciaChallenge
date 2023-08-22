@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchAccounts , AccountInterface} from "../../services/api-service";
+import { fetchAccounts , Account} from "../../services/api-service";
 
 export const getAccounts = createAsyncThunk("accounts/get", async () => {
   try {
@@ -12,7 +12,7 @@ export const getAccounts = createAsyncThunk("accounts/get", async () => {
 
 const accountsReducer = createSlice({
   name: "accounts",
-  initialState : Array<AccountInterface>,
+  initialState : Array<Account>,
   reducers: {},
   extraReducers(builder) {
     builder.addCase(getAccounts.fulfilled, (state, action) => {

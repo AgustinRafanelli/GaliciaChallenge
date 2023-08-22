@@ -9,7 +9,7 @@ export interface fetchAccountResponse {
 
 export type currencyType = "$" | "u$s";
 export type accountType = "CC" | "CA";
-export interface AccountInterface {
+export type Account = {
   id: number;
   balance: string;
   currency: currencyType;
@@ -34,23 +34,19 @@ function accountsFilter(
       const regex = /^-?(?:0|[1-9]\d*)$/;
       return regex.test(balance);
     };
-    return (
-      validCurrency.has(account.moneda) &&
-      validAccountType.has(account.tipo_letras) &&
-      validNumber(account.n) &&
-      validBalance(account.saldo)
+    return (true
     );
   });
 }
 
 function AccountsTranslator(
   accounts: Array<fetchAccountResponse>
-): Array<AccountInterface> {
+): Array<Account> {
   const filteredAccounts = accountsFilter(accounts);
   // traduce la respuesta del enpoint al tipo de objeto que se va a utilizar en la aplicacion
   const translatedAccounts = filteredAccounts.map(
     (account: fetchAccountResponse) => {
-      const translatedAccount: AccountInterface = {
+      const translatedAccount: Account = {
         id: parseInt(account.n),
         balance: account.saldo,
         currency: account.moneda as currencyType,

@@ -1,5 +1,8 @@
 import styled from "styled-components"
 
-export const Lable = styled('span')`
-  font-size: 24px;
-`
+export const Grid = styled("div")`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 32px
+`;

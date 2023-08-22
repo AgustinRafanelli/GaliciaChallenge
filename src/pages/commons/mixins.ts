@@ -11,7 +11,7 @@ export const Page = styled("div")`
   align-items: center;
 `;
 export const Title = styled("span")`
-  font-size: 28px;
+  font-size: 40px;
   font-weight: 600;
   color: #2e5771;
   margin-top: 20px;

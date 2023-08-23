@@ -25,10 +25,14 @@ const AccountsList = () => {
     paginatedAccounts: Array<any> = []
   ): Array<Array<Account | CardButton>> {
     const pageNumber = paginatedAccounts.length;
+    // si es la primera pasada entra en el if
     if (pageNumber == 0) {
+      //y hay 6 o menos cuentas, se ponen todas en la misma pagina
+      // esta rama termina la recursividad
       if (accounts.length <= 6) {
         paginatedAccounts.push(accounts);
         return paginatedAccounts;
+        // sino se ponen 5 y se agrega el boton de navegacion para ir a la siguiente pagina
       } else {
         const page: Array<Account | CardButton> = accounts.slice(0, 5);
         const rest = accounts.slice(5, accounts.length - 1);
@@ -41,7 +45,11 @@ const AccountsList = () => {
         paginatedAccounts.push(page);
         return paginator(rest, activePage, setActivePage, paginatedAccounts);
       }
+      // si no es la primera pasada
     } else {
+      // y hay 5 o menos cuentas, se ponen todas en la misma pagina
+      // con el boton de navegacion para volver a la pagina anterior
+      // esta rama termina la recursividad
       if (accounts.length <= 5) {
         const page: Array<Account | CardButton> = accounts;
         page.unshift({
@@ -50,6 +58,8 @@ const AccountsList = () => {
         });
         paginatedAccounts.push(page);
         return paginatedAccounts;
+      // sino se ponen 4 y se agrega tanto el boton de navegacion para ir a la
+      // siguiente pagina como el boton de navegacion para volver a la pagina anterior
       } else {
         const page: Array<Account | CardButton> = accounts.slice(0, 4);
         const rest = accounts.slice(4, accounts.length - 1);
@@ -69,6 +79,8 @@ const AccountsList = () => {
     }
   }
 
+  // este useEffect recarga el componente cada vez que 
+  // las cuentas del store se modifiquen
   useEffect(() => {
     setActivePage(0);
     setPagination(paginator(accounts, activePage, setActivePage));

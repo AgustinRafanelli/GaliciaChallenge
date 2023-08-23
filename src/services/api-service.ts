@@ -1,7 +1,9 @@
 import axios from "axios";
 
 export interface fetchAccountResponse {
+  e: string;
   n: string;
+  t: string;
   saldo: string;
   moneda: string;
   tipo_letras: string;
@@ -14,9 +16,9 @@ export type Account = {
   balance: string;
   currency: currencyType;
   type: accountType;
-}
+};
 
-function accountsFilter(
+export function accountsFilter(
   accounts: Array<fetchAccountResponse>
 ): Array<fetchAccountResponse> {
   return accounts.filter((account: fetchAccountResponse) => {
@@ -34,12 +36,16 @@ function accountsFilter(
       const regex = /^-?(?:0|[1-9]\d*)$/;
       return regex.test(balance);
     };
-    return (true
+    return (
+      validCurrency.has(account.moneda) &&
+      validAccountType.has(account.tipo_letras) &&
+      validNumber(account.n) &&
+      validBalance(account.saldo)
     );
   });
 }
 
-function AccountsTranslator(
+export function accountsTranslator(
   accounts: Array<fetchAccountResponse>
 ): Array<Account> {
   const filteredAccounts = accountsFilter(accounts);
@@ -65,7 +71,7 @@ export function fetchAccounts() {
     url: url,
   })
     .then(({ data }) => {
-      return AccountsTranslator(data.cuentas);
+      return accountsTranslator(data.cuentas);
     })
     .catch((err) => console.error(err));
 }

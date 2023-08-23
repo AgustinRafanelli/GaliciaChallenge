@@ -8,6 +8,7 @@ export const CardWrapper = styled("button")`
   border-radius: 8px;
   border: 0px;
   margin: 12px;
+  cursor: pointer;
 `;
 export const Lable = styled("p")`
   color: white;

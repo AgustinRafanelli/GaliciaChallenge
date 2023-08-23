@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Lable, Details } from "./mixins";
 import { Page, Title, Subtitle } from "../commons/mixins";
 import { Account } from "../../services/api-service";
-import { accountCurrenyTraductor, accountTypeTraductor } from "../../utils/accounts";
+import {
+  accountCurrenyTraductor,
+  accountTypeTraductor,
+} from "../../utils/accounts";
 
 // redux
 import { useSelector } from "react-redux";
@@ -34,18 +37,20 @@ const AccountsDetail = () => {
       <Title>Este es tu saldo actual</Title>
       {/* en caso de que no se encuentre la cuenta
        se muesta un mensaje de error */}
-      {!!account ? (
-        <Details>
-          <Lable>Saldo de la cuenta: {account?.balance}</Lable>
-          <Lable>
-            Tipo de Cuenta: {accountTypeTraductor[account?.type]} en{" "}
-            {accountCurrenyTraductor[account?.currency]}
-          </Lable>
-          <Lable>Numero de cuenta: {account?.id}</Lable>
-        </Details>
-      ) : (
-        <Lable>La cuenta con numero {id} no esta disponible</Lable>
-      )}
+      <Details>
+        {!!account ? (
+          <>
+            <Lable>Saldo de la cuenta: {account?.balance}</Lable>
+            <Lable>
+              Tipo de Cuenta: {accountTypeTraductor[account?.type]} en{" "}
+              {accountCurrenyTraductor[account?.currency]}
+            </Lable>
+            <Lable>Numero de cuenta: {account?.id}</Lable>
+          </>
+        ) : (
+          <Lable>La cuenta con numero {id} no esta disponible</Lable>
+        )}
+      </Details>
     </Page>
   );
 };

@@ -6,7 +6,7 @@ export const ButtonWrapper = styled("button")`
   background-color: #31cd32;
   border-radius: 8px;
   border: 0px;
-  
+  cursor: pointer;
 `;
 export const Lable = styled("span")`
   font-size: 16px;

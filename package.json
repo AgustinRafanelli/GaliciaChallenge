@@ -6,7 +6,6 @@
   "repository": "https://github.com/AgustinRafanelli/GaliciaChallenge.git",
   "author": "Agustin Rafanelli",
   "license": "MIT",
-  "proxy": "http://localhost:3000",
   "private": false,
   "scripts": {
     "start": "react-scripts start",

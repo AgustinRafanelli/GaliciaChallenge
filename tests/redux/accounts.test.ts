@@ -3,7 +3,7 @@ import { expect, describe, test, beforeEach, jest } from "@jest/globals";
 import accountsReducer, {
   getAccounts,
 } from "../../src/redux/reducers/accounts-reducer";
-import { fetchAccounts } from "../../src/services/api-service";
+import * as apiService from "../../src/services/api-service";
 
 describe("Accounts Redux Slice", () => {
   let store;
@@ -16,19 +16,20 @@ describe("Accounts Redux Slice", () => {
     });
   });
 
-  test("should set accounts in the store", () => {
+  test("Guarda las cuentas correctamente", async () => {
     const fakeAccounts = [
-      { id: 1, balance: 100, currency: "USD", type: "Savings" },
-      { id: 2, balance: 200, currency: "EUR", type: "Checking" },
-    ];
+      { id: 872378326701, balance: "1500", currency: "u$s", type: "CC" },
+      { id: 872378327823, balance: "250", currency: "$", type: "CA" },
+    ]
 
-    (
-      fetchAccounts as jest.MockedFunction<typeof fetchAccounts>
-    ).mockResolvedValue([
+    const fetchSpy = jest.spyOn(apiService, 'fetchAccounts');
+
+    fetchSpy.mockResolvedValue([
       { id: 872378326701, balance: "1500", currency: "u$s", type: "CC" },
       { id: 872378327823, balance: "250", currency: "$", type: "CA" },
     ]);
-    store.dispatch(getAccounts());
+
+    await store.dispatch(getAccounts());
 
     const state = store.getState().accounts;
     expect(state).toEqual(fakeAccounts);

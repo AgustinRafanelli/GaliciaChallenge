@@ -31,16 +31,17 @@ export function accountsFilter(
       const regex = /^[1-9][0-9]*$/;
       return regex.test(number);
     };
-    // valida que el saldo de la cuenta sea un numero real
-    const validBalance = (balance: string) => {
-      const regex = /^-?(?:0|[1-9]\d*)$/;
+    // valida que el saldo de la cuenta sea un numero real y
+    // si es negativo que sea una Cuenta Corriente
+    const validBalance = (tipo_letras: string, balance: string) => {
+      const regex = tipo_letras === "CC" ? /^-?(?:0|[1-9]\d*)$/ : /^[1-9][0-9]*$/;
       return regex.test(balance);
     };
     return (
-      validCurrency.has(account.moneda) &&
-      validAccountType.has(account.tipo_letras) &&
       validNumber(account.n) &&
-      validBalance(account.saldo)
+      validAccountType.has(account.tipo_letras) &&
+      validCurrency.has(account.moneda) &&
+      validBalance(account.tipo_letras, account.saldo)
     );
   });
 }

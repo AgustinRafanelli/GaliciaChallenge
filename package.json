@@ -27,7 +27,6 @@
     "react-scripts": "^5.0.1",
     "react-testing-library": "^8.0.1",
     "styled-components": "^6.0.7",
-    "typescript": "^5.1.6",
     "yarn": "^1.22.19"
   },
   "browserslist": {
@@ -48,6 +47,7 @@
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "ts-loader": "^9.4.4",
+    "typescript": "^5.1.6",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
   }

@@ -14,12 +14,11 @@
   ```
 
   ### Windows
-    Entrar a https://nodejs.org/es/download/, descargar e instalar la version mas reciente para windows
+  Entrar a https://nodejs.org/es/download/, descargar e instalar la version mas reciente para windows
 
 ## Instalar Yarn
 
-  Ahora en la terminal, estando ubicado fuera de la carpeta del proyecto, se instala yarn 
-  mediante NPM de manera global con el siguiente comando:
+  Ahora en la terminal, estando ubicado fuera de la carpeta del proyecto, se instala yarn mediante NPM de manera global con el siguiente comando:
   ```
   npm install --global yarn
   ```

@@ -13,6 +13,8 @@ interface Card {
 const Card = ({ account, button }: Card) => {
   const navigate = useNavigate();
 
+  // si se le pasa una cuenta a la card, lleva al usuario a la pagina de detalle de dicha cuenta
+  // si se le pasa un boton de navegacion, pasa a la siguiente pagina
   const onClickHandler = () => {
     if (!!account) {
       navigate(account?.currency + "/" + account?.id);
